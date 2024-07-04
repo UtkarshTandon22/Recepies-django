@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block start %}
+
+<div class="container mt-5">
+
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Register</h2>
+        <hr>
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          </div>
+{% endif %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="first_name" required id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="last_name" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Set Username</label>
+              <input type="text" class="form-control" name="username" required id="exampleInputEmail1" aria-describedby="emailHelp">
+              
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Set Password</label>
+              <input type="password" class="form-control" name="password"required id="exampleInputPassword1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+              <div id="emailHelp" class="form-text">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+            </div>
+
+            <p> Already have account? <a href="/login/">Login</a> </p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+    </div>
+
+
+    </div>
+{% endblock %} 
