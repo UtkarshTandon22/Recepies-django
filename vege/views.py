@@ -70,6 +70,9 @@ def delete_recepie(request, id):
 
 
 def login_page(request):
+    data = {
+        'title' : 'Recepies'
+    }
     if request.method=="POST":
 
         username = request.POST.get('username')
@@ -90,7 +93,7 @@ def login_page(request):
             return redirect('/recepies/')
             
             
-    return render(request , 'login.html')
+    return render(request , 'login.html',data)
 
 def logout_page(request):
     logout(request)
